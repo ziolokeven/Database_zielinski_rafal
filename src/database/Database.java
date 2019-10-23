@@ -33,6 +33,18 @@ public class Database {
         columns = new ArrayList<>();
         table_column_data= new HashMap<>();
         md = db.getMetaData();
+        setFirstConnection();
+    }
+     private void setFirstConnection() throws SQLException{
+
+        
+        setSchemasName();
+        
+        currentScheme = schemas.get(0);
+        
+        updateData();
+        
+  
     }
     public void updateData() throws SQLException{
         setTablesName(currentScheme);
